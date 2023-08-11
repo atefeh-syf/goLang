@@ -1,0 +1,13 @@
+2023/08/11 16:59:19 Start to main 
+2023/08/11 16:59:19 start sum
+2023/08/11 16:59:19 end sum sum
+2023/08/11 16:59:34 Start to main 
+2023/08/11 16:59:34 start sum
+2023/08/11 16:59:34 end sum sum
+2023/08/11 17:01:56 example1.go:18: Start to main 
+2023/08/11 17:01:56 example1.go:23: start sum
+2023/08/11 17:01:56 example1.go:25: end sum sum
+Info: 2023/08/11 17:09:36 example1.go:29: Start to main 
+Warn: 2023/08/11 17:09:36 example1.go:34: start sum
+Warn: 2023/08/11 17:09:36 example1.go:36: end sum sum
+{"time" :  "2023/08/11 17:01:56", "level" : "Warn", "msg" :  "end sum sum"}
