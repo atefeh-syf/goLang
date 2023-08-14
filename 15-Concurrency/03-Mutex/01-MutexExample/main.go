@@ -3,11 +3,11 @@ package main
 import "sync"
 
 func main() {
-	example1()
+	Example1()
 }
 
 //simple1
-func example1() {
+func Example1() {
 	mx := sync.Mutex{}
 	wg := sync.WaitGroup{}
 	counter := 0
