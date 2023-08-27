@@ -9,6 +9,11 @@ var userList = []int{}
 var ready = false
 
 func main() {
+	RunExample()
+	Streaming()
+}
+
+func Streaming() {
 	condition := sync.Cond{L: &sync.Mutex{}}
 	for i := 0; i < 1000; i++ {
 		go NewRequest(i, &condition)
