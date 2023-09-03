@@ -7,15 +7,17 @@ import (
 
 func InternalCancellationExample() {
 	ctx := context.Background()
-	ctx, cancel := context.WithCancel(ctx)
+	//ctx, cancel := context.WithCancel(ctx)
 
-	go func() {
-		for {
-			if time.Now().Second()%15 == 0 {
-				cancel()
-			}
-		}
-	}()
+	ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
+	defer cancel()
+	// go func() {
+	// 	for {
+	// 		if time.Now().Second()%15 == 0 {
+	// 			cancel()
+	// 		}
+	// 	}
+	// }()
 
 	go process1(ctx, 0)
 	process2(ctx, 0)
@@ -25,7 +27,7 @@ func process1(ctx context.Context, num int) {
 	for {
 		select {
 		case <-ctx.Done():
-			println("Task canceled")
+			println("Task canceled", ctx.Err().Error())
 			return
 		default:
 			num++
@@ -39,7 +41,7 @@ func process2(ctx context.Context, num int) {
 	for {
 		select {
 		case <-ctx.Done():
-			println("Task canceled")
+			println("Task canceled", ctx.Err().Error())
 			return
 		default:
 			num--
