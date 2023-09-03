@@ -7,17 +7,22 @@ import (
 
 func InternalCancellationExample() {
 	ctx := context.Background()
-	//ctx, cancel := context.WithCancel(ctx)
+	ctx, cancel := context.WithCancel(ctx)
 
-	ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
+	//Timeout
+	//ctx, cancel = context.WithTimeout(ctx, time.Second * 3)
+
+	//Deadline
+	//ctx, cancel = context.WithDeadline(ctx, time.Date(2022, time.February, 13, 23, 30, 0, 0, time.UTC))
+
 	defer cancel()
-	// go func() {
-	// 	for {
-	// 		if time.Now().Second()%15 == 0 {
-	// 			cancel()
-	// 		}
-	// 	}
-	// }()
+	go func() {
+		for {
+			if time.Now().Second()%15 == 0 {
+				cancel()
+			}
+		}
+	}()
 
 	go process1(ctx, 0)
 	process2(ctx, 0)
