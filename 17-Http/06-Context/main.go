@@ -17,6 +17,7 @@ Deadline
 */
 
 func main() {
-	examples.InternalCancellationExample()
+	//examples.InternalCancellationExample()
+	examples.SendValueExample()
 	//management.Run()
 }
