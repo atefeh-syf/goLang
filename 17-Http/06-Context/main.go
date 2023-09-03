@@ -1,7 +1,8 @@
 package main
 
 import (
-	"context-examples/examples"
+	//"context-examples/examples"
+	"context-examples/management"
 )
 
 /*
@@ -16,5 +17,6 @@ Deadline
 */
 
 func main() {
-	examples.InternalCancellationExample()
+	//examples.InternalCancellationExample()
+	management.Run()
 }
