@@ -15,3 +15,11 @@ func BenchmarkConcatStringWithBuilder(b *testing.B) {
 		ConcatStringWithBuilder("test", "test1")
 	}
 }
+
+func BenchmarkStringWithoutBuilder(b *testing.B) {
+	StringWithoutBuilder("test", "test1")
+}
+
+func BenchmarkStringWithBuilder(b *testing.B) {
+	StringWithBuilder("test", "test1")
+}

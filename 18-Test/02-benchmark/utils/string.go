@@ -18,3 +18,15 @@ func ConcatStringWithBuilder(a, b string) string {
 	}
 	return sb.String()
 }
+
+func StringWithoutBuilder(a, b string) string {
+	var s string = ""
+	s = s + a + b
+	return s
+}
+
+func StringWithBuilder(a, b string) string {
+	var sb strings.Builder
+	sb.WriteString(a + b)
+	return sb.String()
+}
